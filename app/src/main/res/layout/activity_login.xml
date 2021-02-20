@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login Account"
+            android:gravity="center"
+            android:textFontWeight="300"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: "/>
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:hint="Enter email address"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"/>
+
+        <EditText
+            android:id="@+id/loginPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:hint="Enter password"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="15dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/loginbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:onClick="loginbtn"
+            android:paddingRight="20dp"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimary"/>
+
+        <Button
+            android:id="@+id/signbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SignUp"
+            android:background="#F44336"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/registation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registation here"
+            android:paddingTop="15dp"
+            android:layout_gravity="center"
+            android:onClick="navigateSignup"
+            android:clickable="true"
+            tools:ignore="OnClick" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
