@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -32,6 +34,7 @@ public class TripBookActivity extends AppCompatActivity {
     EditText blocation;
     EditText bmessage;
     Context mtx;
+    Button CnSubmit;
 
     TripBookService tripBookService;
    // Button tripSubmit;
@@ -52,13 +55,20 @@ public class TripBookActivity extends AppCompatActivity {
         bperson = findViewById(R.id.tpbperson);
         spinner = findViewById(R.id.tpbselect);
         bmessage = findViewById(R.id.tpbtextarea);
+        CnSubmit = findViewById(R.id.cancelSubmit);
+
 
         //tripSubmit = findViewById(R.id.tripSubmit);
 
 
+        bperson.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view , boolean b) {
+                System.out.println("sharmin NCLC");
+            }
+        });
 
-
-        /*tripSubmit.setOnClickListener(new View.OnClickListener() {
+        CnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tripSubmit();
@@ -66,7 +76,7 @@ public class TripBookActivity extends AppCompatActivity {
 
 
         });
-*/
+
     }
 
     private void locationSelect() {
@@ -81,12 +91,13 @@ public class TripBookActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
     }
-/*
+
     private void tripSubmit() {
-        i = new Intent(getApplicationContext(), ViewBookingActivity.class);
+        System.out.println("sdshdfhbs");
+        i = new Intent(getApplicationContext(), TripBookActivity.class);
         startActivity(i);
     }
-*/
+
 
     public void tripSubmitInsert(View view){
         String name = bname.getText().toString();

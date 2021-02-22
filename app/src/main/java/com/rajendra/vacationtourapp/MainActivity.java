@@ -1,18 +1,26 @@
 package com.rajendra.vacationtourapp;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
+import com.google.android.material.navigation.NavigationView;
 import com.rajendra.vacationtourapp.adapter.RecentsAdapter;
 import com.rajendra.vacationtourapp.adapter.TopPlacesAdapter;
 import com.rajendra.vacationtourapp.model.RecentsData;
@@ -32,7 +40,12 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     ListView myList;
     ArrayList<String> list;
-    ImageView navs;
+    ImageView navs, Crtetrip, VBooking;
+
+   /* NavigationView nav;
+    ActionBarDrawerToggle toggle;
+    DrawerLayout drawerLayout;
+    androidx.appcompat.widget.Toolbar toolbar;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +54,67 @@ public class MainActivity extends AppCompatActivity {
         sign = findViewById(R.id.signin);
         searchView = findViewById(R.id.search);
         navs = findViewById(R.id.menu);
+        Crtetrip = findViewById(R.id.cretrip);
+        VBooking = findViewById(R.id.vBooking);
 
-        navs.setOnClickListener(new View.OnClickListener(){
+        //toolbar = findViewById(R.id.toolbar);
+      //  setSupportActionBar(toolbar);
+
+      //  nav=findViewById(R.id.navmenu);
+//        drawerLayout=findViewById(R.id.drawer);
+
+     /*   toggle=new ActionBarDrawerToggle(this,drawerLayout, toolbar, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();*/
+
+     /*   nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.home:
+                        Toast.makeText(getApplicationContext(), "Home Panel is Open", Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.call:
+                        Toast.makeText(getApplicationContext(), "Call Panel is Open", Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.setting:
+                        Toast.makeText(getApplicationContext(), "Setting Panel is Open", Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                }
+                return true;
+            }
+        });*/
+
+        /*navs.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                nav();
+                navs();
             }
 
+        });*/
+
+        Crtetrip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Creatrip();
+            }
         });
+
+        VBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BookingList();
+            }
+
+
+        });
+
+
 
 
         sign.setOnClickListener(new View.OnClickListener() {
@@ -99,16 +165,28 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void BookingList() {
+        Intent i = new Intent(this, ViewBookingActivity.class);
+        startActivity(i);
+    }
+
     public void insert() {
 
         Intent intent = new Intent(this , LoginActivity.class);
         startActivity(intent);
     }
 
-    public void nav() {
+   /* public void navs() {
         Intent intent = new Intent(this , HeaderActivity.class);
         startActivity(intent);
+    }*/
+
+    public void Creatrip() {
+
+        Intent intent = new Intent(this , CreateTripActivity.class);
+        startActivity(intent);
     }
+
 
     private void setRecentRecycler(List<RecentsData> recentsDataList) {
 
@@ -128,6 +206,8 @@ public class MainActivity extends AppCompatActivity {
         topPlacesAdapter = new TopPlacesAdapter(this , topPlacesDataList);
         topPlacesRecycler.setAdapter(topPlacesAdapter);
     }
+
+
 
 
     // Hi all, today we are going to make a holiday tour app.

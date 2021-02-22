@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.rajendra.vacationtourapp" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.rajendra.vacationtourapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".EditTripBookingActivity"></activity>
         <activity android:name=".ViewBookingActivity" />
-        <activity android:name=".View_Trip_Activity" />
         <activity android:name=".CreateTripActivity" />
         <activity android:name=".TripBookActivity" />
-        <activity android:name=".HeaderActivity" />
+        <activity
+            android:name=".HeaderActivity"
+            tools:ignore="Instantiatable" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".DetailsActivity" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

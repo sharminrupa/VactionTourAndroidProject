@@ -25,7 +25,5 @@ public interface TripBookService {
     @GET("/book/delete/{id}")
     public Call<TripBook> deleteById(@Path("id") long id);
 
-    @POST("/book/login")
-    public Call<TripBook> login(@Body TripBook tripBook);
 
 }

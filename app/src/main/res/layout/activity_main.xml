@@ -4,9 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7F7"
+
     tools:context=".MainActivity"
-    tools:ignore="MissingClass">
+    >
+    //tools:ignore="MissingClass"
+<!--
+    android:id="@+id/drawer"
+    tools:openDrawer="start"-->
+    <!--<RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/colorPrimary"/>
+    </RelativeLayout>-->
+
+   <!-- <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navmenu"
+        app:menu="@menu/iconmenu"
+        app:headerLayout="@layout/activity_header"
+        android:layout_gravity="start"
+        tools:ignore="MissingConstraints">
+
+
+    </com.google.android.material.navigation.NavigationView>-->
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,6 +56,7 @@
             android:src="@drawable/menu"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
+            tools:openDrawer="start"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -134,13 +161,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recent_recycler" />
 
-<!--
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-
-    </com.google.android.material.navigation.NavigationView>-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/top_places_recycler"
         android:layout_width="0dp"
@@ -164,18 +184,21 @@
 
 
         <ImageView
+
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_weight="1"
             android:src="@drawable/home" />
 
         <ImageView
+            android:id="@+id/vBooking"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/profileicon" />
 
         <ImageView
+            android:id="@+id/cretrip"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_weight="1"
