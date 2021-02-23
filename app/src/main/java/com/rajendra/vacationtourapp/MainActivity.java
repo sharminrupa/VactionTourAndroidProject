@@ -42,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> list;
     ImageView navs, Crtetrip, VBooking;
 
-   /* NavigationView nav;
-    ActionBarDrawerToggle toggle;
-    DrawerLayout drawerLayout;
-    androidx.appcompat.widget.Toolbar toolbar;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,46 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Crtetrip = findViewById(R.id.cretrip);
         VBooking = findViewById(R.id.vBooking);
 
-        //toolbar = findViewById(R.id.toolbar);
-      //  setSupportActionBar(toolbar);
 
-      //  nav=findViewById(R.id.navmenu);
-//        drawerLayout=findViewById(R.id.drawer);
-
-     /*   toggle=new ActionBarDrawerToggle(this,drawerLayout, toolbar, R.string.open, R.string.close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();*/
-
-     /*   nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.home:
-                        Toast.makeText(getApplicationContext(), "Home Panel is Open", Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
-                    case R.id.call:
-                        Toast.makeText(getApplicationContext(), "Call Panel is Open", Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
-                    case R.id.setting:
-                        Toast.makeText(getApplicationContext(), "Setting Panel is Open", Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                }
-                return true;
-            }
-        });*/
-
-        /*navs.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                navs();
-            }
-
-        });*/
 
         Crtetrip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,9 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
-
-
-
 
         sign.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,10 +130,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-   /* public void navs() {
-        Intent intent = new Intent(this , HeaderActivity.class);
-        startActivity(intent);
-    }*/
 
     public void Creatrip() {
 

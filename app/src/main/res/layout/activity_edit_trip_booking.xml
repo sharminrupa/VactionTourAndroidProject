@@ -259,7 +259,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:onClick="tripSubmitInsert"
-        android:text="Submit"
+        android:text="update"
         android:background="@android:color/holo_green_light"
         tools:ignore="OnClick"/>
 

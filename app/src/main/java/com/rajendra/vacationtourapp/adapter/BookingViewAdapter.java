@@ -44,13 +44,12 @@ public class BookingViewAdapter extends ArrayAdapter<TripBook> {
         LayoutInflater inflater = context.getLayoutInflater();
          TripBook trips = list.get(position);
 
-        View rowView = inflater.inflate(R.layout.activity_view_booking, null, true);
+        View rowView = inflater.inflate(R.layout.booking_list, null, true);
         TextView tname = rowView.findViewById(R.id.tvname);
         TextView tmobile = rowView.findViewById(R.id.tvmobile);
         TextView temail = rowView.findViewById(R.id.tvemail);
         TextView taddress = rowView.findViewById(R.id.tvaddress);
         TextView tpercon = rowView.findViewById(R.id.tvperson);
-        TextView tlocation = rowView.findViewById(R.id.tvlocation);
         TextView tmesssage = rowView.findViewById(R.id.tvmessage);
 
 
@@ -59,27 +58,30 @@ public class BookingViewAdapter extends ArrayAdapter<TripBook> {
         temail.setText(trips.getEmail());
         taddress.setText(trips.getAddress());
         tpercon.setText(trips.getPerson());
-        tlocation.setText(trips.getLocation());
         tmesssage.setText(trips.getMessage());
 
         Button tupdate = rowView.findViewById(R.id.tvupdate);
         Button tdelete = rowView.findViewById(R.id.tvdelete);
 
-      /*  tupdate.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View v){
+        tupdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 TripBook tbook = list.get(position);
                 Intent i = new Intent(context, EditTripBookingActivity.class);
-                i.putExtra("id", trips.getId());
+                i.putExtra("id", tbook.getId());
                 context.startActivity(i);
             }
+        });
 
-        });*/
 
-       /* tdelete.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+
+        tdelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                System.out.println("dkjkjdkj");
                 TripBook tripBook = list.get(position);
-                Call<TripBook> tb = tripBookService.deleteById(trips.getId());
+                Call<TripBook> tb = tripBookService.deleteById(tripBook.getId());
                 tb.enqueue(new Callback<TripBook>() {
                     @Override
                     public void onResponse(Call<TripBook> call , Response<TripBook> response) {
@@ -95,7 +97,9 @@ public class BookingViewAdapter extends ArrayAdapter<TripBook> {
                     }
                 });
             }
-        });*/
+        });
+
+
 
         return rowView;
     }

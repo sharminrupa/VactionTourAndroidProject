@@ -14,7 +14,7 @@ import retrofit2.http.Path;
 public interface CreateTripService {
 
     @POST("/create/add")
-    public Call<CreateTrip> addBooking(@Body CreateTrip createTrip);
+    public Call<CreateTrip> createTrip(@Body CreateTrip createTrip);
 
     @GET("/create/list")
     public Call<List<CreateTrip>> getAll();
