@@ -23,11 +23,20 @@ public class CreateTrip {
     private String date;
 
 
-    @SerializedName("Backtime")
-    private String Backtime;
+
+    @SerializedName("image")
+    private String image;
 
     @SerializedName("details")
     private String details;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public long getId() {
         return id;
@@ -77,13 +86,7 @@ public class CreateTrip {
         this.date = date;
     }
 
-    public String getBacktime() {
-        return Backtime;
-    }
 
-    public void setBacktime(String backtime) {
-        Backtime = backtime;
-    }
 
     public String getDetails() {
         return details;
@@ -102,7 +105,7 @@ public class CreateTrip {
                 ", cost='" + cost + '\'' +
                 ", recivingaddress='" + recivingaddress + '\'' +
                 ", date='" + date + '\'' +
-                ", Backtime='" + Backtime + '\'' +
+                ", image='" + image + '\'' +
                 ", details='" + details + '\'' +
                 '}';
     }

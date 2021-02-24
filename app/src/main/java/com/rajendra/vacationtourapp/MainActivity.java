@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         setTopPlacesRecycler(topPlacesDataList);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+       /* searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 return false;
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 adapter.getFilter().filter(s);
                 return false;
             }
-        });
+        });*/
     }
 
     public void BookingList() {
