@@ -45,7 +45,8 @@ public class CreateTripActivity extends AppCompatActivity {
     EditText ctamount;
     EditText ctrecive;
     EditText ctdate;
-    EditText ctback;
+    EditText ctperson;
+
     EditText ctdetails;
     Context mtx;
     ImageView imgBtn, imgShow;
@@ -74,6 +75,7 @@ public class CreateTripActivity extends AppCompatActivity {
         ctamount = findViewById(R.id.camount);
         ctrecive = findViewById(R.id.crecive);
         ctdate = findViewById(R.id.cdate);
+        ctperson = findViewById(R.id.maxpeople);
         imgBtn = findViewById(R.id.imgUpload);
         imgShow = findViewById(R.id.imgShow);
 
@@ -88,7 +90,7 @@ public class CreateTripActivity extends AppCompatActivity {
         });
 
 
-
+        /*--------Date show start-------*/
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -109,6 +111,9 @@ public class CreateTripActivity extends AppCompatActivity {
             }
         });
 
+        /*--------Date show end-------*/
+
+
         CnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,7 +127,7 @@ public class CreateTripActivity extends AppCompatActivity {
 
     }
 
-
+    /*--------Image show start-------*/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
@@ -131,6 +136,9 @@ public class CreateTripActivity extends AppCompatActivity {
             imgShow.setImageURI(imageUri);
         }
     }
+
+    /*--------Image show end-------*/
+
 
     private void CancelTrip() {
         Intent intent = new Intent(this , CreateTripActivity.class);
@@ -142,52 +150,6 @@ public class CreateTripActivity extends AppCompatActivity {
         uploadImage(imageUri);
     }
 
-
-//    public void createTrip(View view) {
-//
-//        final Calendar cldr = Calendar.getInstance();
-//        int day = cldr.get(Calendar.DAY_OF_MONTH);
-//        int month = cldr.get(Calendar.MONTH);
-//        int year = cldr.get(Calendar.YEAR);
-//        DatePickerDialog picker = new DatePickerDialog(CreateTripActivity.this,
-//                new DatePickerDialog.OnDateSetListener() {
-//                    @Override
-//                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//                        ctdate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-//                    }
-//                }, year, month, day);
-//
-//        String crlocation = ctlocation.getText().toString();
-//        String crday = ctday.getText().toString();
-//        String cramount = ctamount.getText().toString();
-//        String crrecive = ctrecive.getText().toString();
-//        //String crdate = ctdate.setOnDateChangedListener().getText().toString();
-//        String crback = ctback.getText().toString();
-//        String crdetails = ctdetails.getText().toString();
-//
-//        CreateTrip crtrip = new CreateTrip();
-//        crtrip.setLocation(crlocation);
-//        crtrip.setDay(crday);
-//        crtrip.setCost(cramount);
-//        crtrip.setRecivingaddress(crrecive);
-//        crtrip.setBacktime(crback);
-//        crtrip.setDetails(crdetails);
-//
-//        Call<CreateTrip> ct = createTripService.createTrip(crtrip);
-//        ct.enqueue(new Callback<CreateTrip>() {
-//            @Override
-//            public void onResponse(Call<CreateTrip> call , Response<CreateTrip> response) {
-//
-//                CreateTrip crt = response.body();
-//                startActivity(new Intent(mtx, ViewAllTripActivity.class));
-//            }
-//
-//            @Override
-//            public void onFailure(Call<CreateTrip> call , Throwable t) {
-//                t.printStackTrace();
-//            }
-//        });
-//    }
 
     private void updateLabel() {
         String myFormat = "yyyy-MM-dd"; //In which you need put here
@@ -230,6 +192,8 @@ public class CreateTripActivity extends AppCompatActivity {
                 String crday = ctday.getText().toString();
                 String cramount = ctamount.getText().toString();
                 String crrecive = ctrecive.getText().toString();
+                String crdate = ctdate.getText().toString();
+                String crperson = ctperson.getText().toString();
 
                 String crdetails = ctdetails.getText().toString();
 
@@ -238,6 +202,8 @@ public class CreateTripActivity extends AppCompatActivity {
                 crtrip.setDay(crday);
                 crtrip.setCost(cramount);
                 crtrip.setRecivingaddress(crrecive);
+                crtrip.setDate(crdate);
+                crtrip.setPerson(crperson);
                 crtrip.setDetails(crdetails);
 
                 if(imageUri != null){
@@ -261,8 +227,6 @@ public class CreateTripActivity extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
-
-
             }
 
             @Override
@@ -286,10 +250,5 @@ public class CreateTripActivity extends AppCompatActivity {
 
         return s;
     }
-  
-    
-    
-    
-
 }
 

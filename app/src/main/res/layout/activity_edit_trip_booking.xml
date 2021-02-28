@@ -253,12 +253,12 @@
     </LinearLayout>-->
 
     <Button
-        android:id="@+id/tripEdit"
+        android:id="@+id/update"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:onClick="tripSubmitInsert"
+        android:onClick="updateBook"
         android:text="update"
         android:background="@android:color/holo_green_light"
         tools:ignore="OnClick"/>

@@ -22,6 +22,8 @@ public class CreateTrip {
     @SerializedName("date")
     private String date;
 
+    @SerializedName("person")
+    private String person;
 
 
     @SerializedName("image")
@@ -96,6 +98,14 @@ public class CreateTrip {
         this.details = details;
     }
 
+    public String getPerson() {
+        return person;
+    }
+
+    public void setPerson(String person) {
+        this.person = person;
+    }
+
     @Override
     public String toString() {
         return "CreateTrip{" +
@@ -105,6 +115,7 @@ public class CreateTrip {
                 ", cost='" + cost + '\'' +
                 ", recivingaddress='" + recivingaddress + '\'' +
                 ", date='" + date + '\'' +
+                ", person='" + person + '\'' +
                 ", image='" + image + '\'' +
                 ", details='" + details + '\'' +
                 '}';

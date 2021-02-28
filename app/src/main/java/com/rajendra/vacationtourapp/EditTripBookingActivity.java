@@ -31,7 +31,7 @@ public class EditTripBookingActivity extends AppCompatActivity {
     Context mtx;
     Intent i;
 
-    Button etCancel;
+    Button etCancel, etEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,18 @@ public class EditTripBookingActivity extends AppCompatActivity {
        // elocation = findViewById(R.id.teselect);
         emessage = findViewById(R.id.temessage);
         etCancel = findViewById(R.id.cancelEdit);
+      //  etEdit = findViewById(R.id.tripEdit);
+        
+      /*  etEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                update();
+            }
+
+            private void update() {
+            }
+
+        });*/
 
         etCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +97,7 @@ public class EditTripBookingActivity extends AppCompatActivity {
 
     }
 
-    public void update(View view){
+    public void updateBook(View view){
 
         String etid= eid.getText().toString();
         String etname = ename.getText().toString();
