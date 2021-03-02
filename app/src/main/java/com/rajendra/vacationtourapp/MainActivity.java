@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> list;
     ImageView navs, Crtetrip, VBooking;
 
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,5 +185,12 @@ public class MainActivity extends AppCompatActivity {
     // if any question plz do comment
     // Thanks for watching see you in the next tutorial
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

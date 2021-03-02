@@ -10,16 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.PopupOverlay">
-
-
-
-
-
-
-
-
-
-
         //android:theme="@style/Theme.FraindsTour.AppBarOverlay
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"

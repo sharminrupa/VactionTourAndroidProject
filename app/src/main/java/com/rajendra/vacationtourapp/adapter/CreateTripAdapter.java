@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,12 +25,17 @@ import com.rajendra.vacationtourapp.TripDetailsActivity;
 import com.rajendra.vacationtourapp.imageupload.ImageManager;
 import com.rajendra.vacationtourapp.imageupload.ImageUploadResponse;
 import com.rajendra.vacationtourapp.model.CreateTrip;
+import com.rajendra.vacationtourapp.model.TripBook;
 import com.rajendra.vacationtourapp.retrofit.RetrofitConfig;
 import com.rajendra.vacationtourapp.service.CreateTripService;
 import com.rajendra.vacationtourapp.service.ImageUploadService;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -40,9 +46,6 @@ public class CreateTripAdapter extends ArrayAdapter<CreateTrip> {
     Button VDetails, VDelete;
 
     ImageView limg;
-
-
-    Uri imageUri;
 
     public CreateTripAdapter(Activity context , List<CreateTrip> crList) {
         super(context, R.layout.create_trip_list, crList);
@@ -61,7 +64,9 @@ public class CreateTripAdapter extends ArrayAdapter<CreateTrip> {
         CreateTrip crtList = list.get(position);
         View rowView =  inflater.inflate(R.layout.create_trip_list, null, true);
         CreateTrip post = list.get(position);
-        imageUri = Uri.parse(post.getImage());
+
+
+        //imageUri = Uri.parse(post.getImage());
         //-----------image view end
 
         limg = rowView.findViewById(R.id.loimg);
@@ -70,10 +75,7 @@ public class CreateTripAdapter extends ArrayAdapter<CreateTrip> {
         TextView ldate = rowView.findViewById(R.id.lodate);
         TextView lperson = rowView.findViewById(R.id.loperson);
 
-//        limg.setImageBitmap(crtList.getImage());
-        //limg.setImageAlpha(crtList.getImage());
-
-        Picasso.get().load(imageUri).into(limg);
+        Picasso.get().load("http://192.168.0.103:8080/downloadFile/".concat(crtList.getImage())).into(limg);
         lname.setText(crtList.getLocation());
         lamount.setText(crtList.getCost());
         ldate.setText(crtList.getDate());
@@ -89,10 +91,35 @@ public class CreateTripAdapter extends ArrayAdapter<CreateTrip> {
             }
         });
 
+        VDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("dkjkjdkj");
+                CreateTrip createTrip = list.get(position);
+                Call<CreateTrip> tb = createTripService.deleteById(createTrip.getId());
+                tb.enqueue(new Callback<CreateTrip>() {
+                    @Override
+                    public void onResponse(Call<CreateTrip> call , Response<CreateTrip> response) {
+                        list.remove(position);
+                        notifyDataSetChanged();
+                        setNotifyOnChange(true);
+                        Toast.makeText(context, "Delete Successful", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<CreateTrip> call , Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
+            }
+
+
+        });
+
         return rowView;
     }
 
-        /*--------Image show start-------*/
+     /*--------Image show start-------*/
 
    /* @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){

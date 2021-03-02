@@ -4,33 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    tools:context=".MainActivity"
-    >
-    //tools:ignore="MissingClass"
-    <!--
-        android:id="@+id/drawer"
-        tools:openDrawer="start"-->
-    <!--<RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/toolbar"
-            android:background="@color/colorPrimary"/>
-    </RelativeLayout>-->
-
-    <!-- <com.google.android.material.navigation.NavigationView
-         android:layout_width="wrap_content"
-         android:layout_height="match_parent"
-         android:id="@+id/navmenu"
-         app:menu="@menu/iconmenu"
-         app:headerLayout="@layout/activity_header"
-         android:layout_gravity="start"
-         tools:ignore="MissingConstraints">
-     </com.google.android.material.navigation.NavigationView>-->
-
+    android:id="@+id/activity_main"
+    tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -208,7 +183,4 @@
             app:srcCompat="@drawable/hotel" />
 
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
