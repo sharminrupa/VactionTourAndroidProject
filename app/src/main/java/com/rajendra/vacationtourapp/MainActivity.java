@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> list;
     ImageView navs, Crtetrip, VBooking;
 
+    SharedPreferences sharedPreferences;
+
+    ImageView tList;
+
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -51,13 +56,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+      //  sharedPreferences.getString("isLogedin", true);
+
+
         sign = findViewById(R.id.signin);
         searchView = findViewById(R.id.search);
         navs = findViewById(R.id.menu);
         Crtetrip = findViewById(R.id.cretrip);
         VBooking = findViewById(R.id.vBooking);
 
+        tList = findViewById(R.id.tripList);
 
+        tList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                allTripList();
+            }
+
+        });
 
         Crtetrip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +138,12 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });*/
+    }
+
+    public void allTripList() {
+        Intent i = new Intent(this, ViewAllTripActivity.class);
+        startActivity(i);
+
     }
 
     public void BookingList() {

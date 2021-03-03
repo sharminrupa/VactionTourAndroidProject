@@ -3,6 +3,7 @@ package com.rajendra.vacationtourapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -21,11 +22,16 @@ public class ViewBookingActivity extends AppCompatActivity {
     private Intent i;
     TripBookService tripBookService;
     ListView listViewtripbook;
-
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_booking);
+
+
+
+
+
         tripBookService = RetrofitConfig.createService(TripBookService.class);
         listViewtripbook = findViewById(R.id.trpListView);
 

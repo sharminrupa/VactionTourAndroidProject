@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.rajendra.vacationtourapp.model.TripBook;
 import com.rajendra.vacationtourapp.retrofit.RetrofitConfig;
@@ -36,6 +38,19 @@ public class TripBookActivity extends AppCompatActivity {
     Context mtx;
     Button CnSubmit;
 
+    SharedPreferences sharedPreferences;
+
+    private static final String SHARED_PREF_NAME = "mypref";
+    private static final String KEY_NAME = "name";
+    private static final String KEY_MOBILE = "mobile";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_ADDRESS = "address";
+    private static final String KEY_PERSON = "person";
+    private static final String KEY_SELECT = "select";
+    private static final String KEY_TEXTAREA = "textarea";
+
+
+
     TripBookService tripBookService;
    // Button tripSubmit;
     Spinner spinner;
@@ -44,6 +59,8 @@ public class TripBookActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_book);
+
+
         locationSelect();
         mtx = this;
         tripBookService = RetrofitConfig.createService(TripBookService.class);
@@ -56,6 +73,8 @@ public class TripBookActivity extends AppCompatActivity {
         spinner = findViewById(R.id.tpbselect);
         bmessage = findViewById(R.id.tpbtextarea);
         CnSubmit = findViewById(R.id.cancelSubmit);
+
+        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
 
 
         //tripSubmit = findViewById(R.id.tripSubmit);
@@ -93,9 +112,7 @@ public class TripBookActivity extends AppCompatActivity {
     }
 
     private void tripSubmit() {
-        System.out.println("sdshdfhbs");
-        i = new Intent(getApplicationContext(), TripBookActivity.class);
-        startActivity(i);
+        Toast.makeText(getApplicationContext(), "Thanks for boot this trip", Toast.LENGTH_LONG).show();
     }
 
 
@@ -123,7 +140,8 @@ public class TripBookActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<TripBook> call, Response<TripBook> response) {
                 TripBook user =  response.body();
-                startActivity(new Intent(mtx, ViewBookingActivity.class));
+                startActivity(new Intent(mtx, ViewYourTripActivity.class));
+                //Toast.makeText(getApplicationContext(), "Thanks for boot this trip2", Toast.LENGTH_LONG).show();
             }
 
             @Override

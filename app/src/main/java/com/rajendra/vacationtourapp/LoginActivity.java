@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         lemal = (EditText) findViewById(R.id.email);
         lpass = (EditText) findViewById(R.id.loginPass);
         b1 = (Button) findViewById(R.id.loginbtn);
-        b2 = (Button) findViewById(R.id.signbtn);
+        //b2 = (Button) findViewById(R.id.signbtn);
         /*t1 = (TextView) findViewById(R.id.registation);
 
         t1.setMovementMethod(LinkMovementMethod.getInstance());
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
     public void loginbtn(View view){
         String uEmail = lemal.getText().toString();
         String uPass = lpass.getText().toString();
-        UserModel userModel  = new UserModel();
+        final UserModel userModel  = new UserModel();
         userModel.setEmail(uEmail);
         userModel.setPass(uPass);
         Call<UserModel> user = userService.login(userModel);
@@ -88,7 +88,9 @@ public class LoginActivity extends AppCompatActivity {
                     if(userModel1.getEmail() != null){
                         i = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(i);
-                    }else{
+                    }if(userModel1.getEmail() == null || userModel.getPass() == null){
+                        Toast.makeText(getApplicationContext(), "Please sign in here", Toast.LENGTH_LONG).show();
+                    } else{
                         Toast.makeText(getApplicationContext(), "Please check usrname/password", Toast.LENGTH_LONG).show();
                     }
 
